@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adhil Abdul Jaleel — Pastry Chef Portfolio</title>
+<meta name="description" content="Adhil Abdul Jaleel, Pastry Commi Chef — Argentinian & Western pastry arts. Portfolio, experience and references.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-950:#131f1a;
+    --green-900:#1b2b24;
+    --green-line:rgba(239,232,216,.22);
+    --ivory:#f2ede1;
+    --ivory-line:rgba(33,28,21,.14);
+    --ink:#221d16;
+    --ink-soft:#514a3d;
+    --cream:#efe7d6;
+    --cream-soft:#c9c0ab;
+    --gold:#b6863d;
+    --wine:#732f3d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(19,31,26,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--green-line);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .nav .brand{color:var(--cream);font-family:'Fraunces',serif;font-size:19px;letter-spacing:.02em;text-decoration:none;}
+  .nav .links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  .nav .links a{color:var(--cream-soft);text-decoration:none;font-size:14px;font-weight:400;}
+  .nav .links a:hover{color:var(--cream);}
+  .nav .toggle{display:none;background:none;border:0;color:var(--cream);font-size:22px;cursor:pointer;}
+  @media (max-width:760px){
+    .nav .links{position:absolute;top:64px;left:0;right:0;background:var(--green-950);flex-direction:column;gap:0;border-bottom:1px solid var(--green-line);display:none;}
+    .nav .links.open{display:flex;}
+    .nav .links a{padding:16px 32px;border-top:1px solid var(--green-line);}
+    .nav .toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--green-950);
+    color:var(--cream);
+    overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 20%;opacity:.16;}
+  .hero-grain{position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,31,26,.35),rgba(19,31,26,.92) 72%,var(--green-950));}
+  .hero-inner{
+    position:relative;
+    display:grid;grid-template-columns:1.1fr .9fr;
+    align-items:end;
+    min-height:640px;
+    padding:64px 0 0;
+    gap:24px;
+  }
+  .hero-copy{padding-bottom:70px;}
+  .eyebrow{font-size:13px;letter-spacing:.08em;color:var(--gold);margin:0 0 18px;font-weight:500;}
+  .hero-copy h1{font-size:clamp(42px,6vw,74px);line-height:1.02;margin:0 0 22px;font-weight:500;}
+  .hero-copy h1 em{font-style:italic;color:var(--gold);font-weight:400;}
+  .hero-copy p{max-width:460px;font-size:17px;line-height:1.65;color:var(--cream-soft);margin:0 0 30px;}
+  .hero-stats{display:flex;gap:36px;flex-wrap:wrap;}
+  .hero-stats div b{display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:500;}
+  .hero-stats div span{font-size:12.5px;color:var(--cream-soft);}
+  .hero-photo{position:relative;display:flex;justify-content:center;align-items:flex-end;height:100%;}
+  .hero-photo img{max-height:580px;width:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45));}
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;padding-top:44px;}
+    .hero-photo{order:-1;}
+    .hero-photo img{max-height:360px;}
+    .hero-copy{padding-bottom:40px;text-align:left;}
+  }
+
+  /* ---------- COURSE HEADER (shared) ---------- */
+  .course{padding:110px 0;}
+  .course.on-green{background:var(--green-950);color:var(--cream);}
+  .course-head{display:flex;align-items:baseline;gap:18px;margin-bottom:56px;}
+  .course-num{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--gold);white-space:nowrap;}
+  .course-head h2{font-size:clamp(30px,4vw,44px);font-weight:500;margin:0;}
+  .rule{height:1px;background:var(--ivory-line);flex:1;align-self:center;margin-top:6px;}
+  .on-green .rule{background:var(--green-line);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center;}
+  .about-grid img{border-radius:2px;}
+  .about-grid p{font-size:17px;line-height:1.75;color:var(--ink-soft);margin:0 0 18px;}
+  .about-grid p:first-of-type{font-family:'Fraunces',serif;font-size:22px;line-height:1.5;color:var(--ink);font-weight:400;}
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+
+  /* ---------- EXPERIENCE ---------- */
+  .menu-list{list-style:none;margin:0;padding:0;}
+  .menu-item{
+    display:grid;grid-template-columns:1fr auto;gap:24px;
+    padding:28px 0;border-top:1px solid var(--green-line);
+  }
+  .menu-item:last-child{border-bottom:1px solid var(--green-line);}
+  .menu-item h3{margin:0 0 6px;font-size:22px;font-weight:500;}
+  .menu-item .place{font-size:13.5px;color:var(--gold);margin-bottom:10px;letter-spacing:.02em;}
+  .menu-item p{margin:0;font-size:15px;line-height:1.7;color:var(--cream-soft);max-width:640px;}
+  .menu-item time{font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--cream-soft);white-space:nowrap;padding-top:2px;}
+  @media (max-width:640px){.menu-item{grid-template-columns:1fr;}.menu-item time{order:-1;}}
+
+  /* ---------- CHEF STORY ---------- */
+  .story-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center;}
+  .story-grid img{border-radius:2px;}
+  .story-grid blockquote{margin:0;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(22px,2.6vw,30px);line-height:1.5;color:var(--ink);}
+  .story-grid blockquote::before{content:"“";color:var(--wine);}
+  .story-grid blockquote::after{content:"”";color:var(--wine);}
+  @media (max-width:900px){.story-grid{grid-template-columns:1fr;gap:32px;}}
+
+  /* ---------- PORTFOLIO GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--ivory-line);}
+  .dish{background:var(--ivory);position:relative;overflow:hidden;aspect-ratio:4/5;cursor:default;}
+  .dish img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .dish:hover img{transform:scale(1.05);}
+  .dish figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:16px 16px 14px;
+    background:linear-gradient(0deg,rgba(19,31,26,.86),rgba(19,31,26,0));
+    color:var(--cream);font-size:12.5px;line-height:1.5;
+    opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;
+  }
+  .dish:hover figcaption{opacity:1;transform:translateY(0);}
+  .dish figcaption b{display:block;font-family:'Fraunces',serif;font-size:14.5px;font-weight:500;margin-bottom:2px;}
+  @media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);} .dish figcaption{opacity:1;transform:none;}}
+
+  /* ---------- REFERENCES ---------- */
+  .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--green-line);}
+  .ref{background:var(--green-950);padding:38px 32px;}
+  .ref .mark{width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;color:var(--gold);margin-bottom:20px;}
+  .ref h3{margin:0 0 4px;font-size:19px;font-weight:500;}
+  .ref .role{font-size:13px;color:var(--gold);margin-bottom:16px;}
+  .ref .contact{font-size:13px;color:var(--cream-soft);line-height:1.8;word-break:break-word;}
+  @media (max-width:760px){.refs{grid-template-columns:1fr;}}
+
+  /* ---------- CLOSING ---------- */
+  .closing{text-align:center;padding:120px 0 90px;}
+  .closing .serif-note{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(28px,4vw,42px);max-width:640px;margin:0 auto 30px;line-height:1.4;}
+  .closing p.lead{max-width:520px;margin:0 auto 40px;color:var(--ink-soft);font-size:16px;line-height:1.7;}
+  .cta{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .btn{
+    display:inline-block;padding:14px 30px;border-radius:2px;font-size:14px;letter-spacing:.02em;
+    text-decoration:none;border:1px solid var(--ink);color:var(--ink);
+  }
+  .btn.filled{background:var(--ink);color:var(--ivory);}
+  footer{background:var(--green-950);color:var(--cream-soft);text-align:center;padding:26px 0;font-size:12.5px;}
+  footer b{color:var(--cream);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Adhil Abdul Jaleel</a>
+    <ul class="links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#references">References</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
+  <div class="hero-grain"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">PASTRY COMMI CHEF — PORTFOLIO</p>
+      <h1>Desserts built<br>on <em>precision</em><br>and craft.</h1>
+      <p>Three years across international kitchens in Dubai, Montenegro and Bangalore, specialising in Argentinian and Western pastry — plated with balance, restraint and a little theatre.</p>
+      <div class="hero-stats">
+        <div><b>3+</b><span>Years experience</span></div>
+        <div><b>3</b><span>Countries worked</span></div>
+        <div><b>4</b><span>Kitchens &amp; teams</span></div>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="images/hero-chef.png" alt="Chef Adhil Abdul Jaleel holding a plated dessert"></div>
+  </div>
+</header>
+
+<section class="course" id="about">
+  <div class="wrap">
+    <div class="course-head"><span class="course-num">I. — Welcoming Message</span><span class="rule"></span></div>
+    <div class="about-grid">
+      <img src="images/kitchen-action.jpg" alt="Adhil plating a shrimp and spinach starter for service">
+      <div>
+        <p>I'm Adhil Abdul Jaleel, a dedicated Pastry Commi Chef with over 3 years of experience in high-end international kitchens.</p>
+        <p>Specialising in Argentinian and Western cuisine, I'm passionate about creating memorable desserts that delight guests and elevate the dining experience. With a strong focus on kitchen efficiency, food safety, and culinary innovation, I thrive in fast-paced environments where teamwork and adaptability are key.</p>
+        <p>Explore the portfolio below to see the desserts and pastries I've crafted, and the journey behind them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="course on-green" id="experience">
+  <div class="wrap">
+    <div class="course-head"><span class="course-num">II. — Experience</span><span class="rule"></span></div>
+    <ul class="menu-list">
+      <li class="menu-item">
+        <div>
+          <h3>Commis — MINIBÉ</h3>
+          <div class="place">Experiential Dessert Dining · Bangalore, India</div>
+          <p>At India's first experiential dessert dining restaurant, preparing plated desserts for multi-course tasting menus with a focus on precision, balance and presentation — working with seasonal, locally sourced produce.</p>
+        </div>
+        <time>Nov 2025 — Present</time>
+      </li>
+      <li class="menu-item">
+        <div>
+          <h3>Commis — TAPA SAKE Restaurant</h3>
+          <div class="place">One&amp;Only Portonovi · Montenegro</div>
+          <p>Assisted the Sous Chef with day-to-day operations of the satellite kitchen, keeping every section organised and service-ready across luxury restaurant operations.</p>
+        </div>
+        <time>Jun — Oct 2025</time>
+      </li>
+      <li class="menu-item">
+        <div>
+          <h3>Commis III — Beach Bar &amp; Grill by Mauro Colagreco</h3>
+          <div class="place">One&amp;Only Royal Mirage · Dubai, UAE</div>
+          <p>Supported the pastry team across breakfast, lunch and dinner service in a high-volume luxury restaurant, contributing to seasonal menus inspired by Argentinian flavours alongside the Head Chef.</p>
+        </div>
+        <time>Aug 2022 — Jun 2024</time>
+      </li>
+      <li class="menu-item">
+        <div>
+          <h3>Industrial Trainee</h3>
+          <div class="place">Radisson Blu · India</div>
+          <p>Gained practical experience in a professional hotel kitchen — kitchen organisation, mise en place, food safety and the teamwork behind consistent service.</p>
+        </div>
+        <time>Nov 2021 — Jan 2022</time>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="course">
+  <div class="wrap">
+    <div class="course-head"><span class="course-num">III. — Chef's Story</span><span class="rule"></span></div>
+    <div class="story-grid">
+      <img src="images/chef-story.jpg" alt="Chef Adhil Abdul Jaleel in the kitchen">
+      <blockquote>From early days surrounded by the aroma of fresh pastries to over 3 years in international kitchens, my journey has been fuelled by a passion for pastry — blending tradition with creativity in every dish.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="course" id="portfolio" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="course-head"><span class="course-num">IV. — Food Portfolio</span><span class="rule"></span></div>
+  </div>
+  <div class="gallery">
+    <figure class="dish"><img src="images/macha-brownie.jpg" alt="Macha brownie, coconut pumpkin puree, brown sugar vanilla chantilly"><figcaption><b>Macha Brownie</b>Coconut pumpkin purée, brown sugar vanilla chantilly</figcaption></figure>
+    <figure class="dish"><img src="images/mix-berries.jpg" alt="Mixed berries, blackberry reduction, coriander chilli sorbet, meringue"><figcaption><b>Mixed Berries</b>Blackberry reduction, coriander-chilli sorbet, meringue</figcaption></figure>
+    <figure class="dish"><img src="images/banana-icecream.jpg" alt="Banana ice cream, dulce de leche mousse, tuile"><figcaption><b>Banana Ice Cream</b>Dulce de leche mousse, tuile</figcaption></figure>
+    <figure class="dish"><img src="images/dates-sauce.jpg" alt="Dates sauce, green apple, dates, banana dill leaves, tuile"><figcaption><b>Dates &amp; Green Apple</b>Banana, dill leaves, tuile</figcaption></figure>
+    <figure class="dish"><img src="images/chocolate-tuile.jpg" alt="Chocolate tuile, dark chocolate sorbet, crunchy pecan nuts, green apple rosemary"><figcaption><b>Chocolate Tuile</b>Dark chocolate sorbet, pecan, apple-rosemary</figcaption></figure>
+    <figure class="dish"><img src="images/canapes.jpg" alt="Canapes: strawberry and blueberry chantilly, caramelised banana, mango red chilli"><figcaption><b>Canapés</b>Berry chantilly, caramelised banana, mango-chilli</figcaption></figure>
+    <figure class="dish"><img src="images/octopus-romesco.jpg" alt="Romesco sauce, grilled octopus"><figcaption><b>Grilled Octopus</b>Romesco sauce</figcaption></figure>
+    <figure class="dish"><img src="images/orange-brioche.jpg" alt="Orange vanilla sauce, brioche pudding with orange zest"><figcaption><b>Brioche Pudding</b>Orange-vanilla sauce, orange zest</figcaption></figure>
+    <figure class="dish"><img src="images/mascarpone-mousse.jpg" alt="Mascarpone mousse, caramelised banana, pistachio crumble, coffee ice cream"><figcaption><b>Mascarpone Mousse</b>Caramelised banana, pistachio, coffee ice cream</figcaption></figure>
+    <figure class="dish"><img src="images/churros-eclair.jpg" alt="Churros, dulce de leche flan, eclair"><figcaption><b>Churros &amp; Flan</b>Dulce de leche flan, éclair</figcaption></figure>
+    <figure class="dish"><img src="images/sticky-toffee.jpg" alt="Sticky toffee pudding with dates sauce"><figcaption><b>Sticky Toffee Pudding</b>Dates sauce</figcaption></figure>
+    <figure class="dish"><img src="images/rice-pudding.jpg" alt="Creamy rice pudding with tangy passion fruit sorbet"><figcaption><b>Rice Pudding</b>Tangy passion fruit sorbet</figcaption></figure>
+    <figure class="dish"><img src="images/spinach-shrimp.jpg" alt="Spinach with truffle oil, fried shrimps"><figcaption><b>Spinach &amp; Shrimp</b>Truffle oil, fried shrimp</figcaption></figure>
+    <figure class="dish"><img src="images/coffee-tiramisu.jpg" alt="Coffee ice cream, crispy sponge, mascarpone and cocoa powder"><figcaption><b>Coffee Tiramisu</b>Crispy sponge, mascarpone, cocoa</figcaption></figure>
+  </div>
+</section>
+
+<section class="course on-green" id="references" style="padding-top:96px;">
+  <div class="wrap">
+    <div class="course-head"><span class="course-num">V. — References</span><span class="rule"></span></div>
+  </div>
+  <div class="refs">
+    <div class="ref">
+      <div class="mark">LA</div>
+      <h3>Mr. Leonel Agirre</h3>
+      <div class="role">Head Chef, Mauro Colagreco at Raffles London</div>
+      <div class="contact">+54 9221 5067712<br>laguirretobia@gmail.com</div>
+    </div>
+    <div class="ref">
+      <div class="mark">JC</div>
+      <h3>Ms. M Jenny Clinta</h3>
+      <div class="role">Head Chef, MINIBÉ — Bangalore, India</div>
+      <div class="contact">+91 98402 36400<br>mjennyclinta@gmail.com</div>
+    </div>
+    <div class="ref">
+      <div class="mark">JA</div>
+      <h3>Mr. Joan Marrie V Abad</h3>
+      <div class="role">Sous Chef – Pastry, One&amp;Only Royal Mirage, Dubai</div>
+      <div class="contact">+971 54 788 3876<br>joanmarievaldezabad93@gmail.com</div>
+    </div>
+  </div>
+</section>
+
+<section class="course closing" id="contact">
+  <div class="wrap">
+    <p class="serif-note">"See you soon" — thank you for exploring the menu.</p>
+    <p class="lead">Each dish here reflects a passion for pastry, craftsmanship and dedication to unforgettable dining experiences. Reach out to talk roles, collaborations, or a tasting.</p>
+    <div class="cta">
+      <a class="btn filled" href="mailto:youremail@example.com">Email Adhil</a>
+      <a class="btn" href="#references">View references</a>
+    </div>
+  </div>
+</section>
+
+<footer><b>Adhil Abdul Jaleel</b> — Pastry Commi Chef · Portfolio built with care</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById('navLinks').classList.remove('open');
+  }));
+</script>
+</body>
+</html>
